@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxaf2sxcxokko"]
+
+[ext_resource type="Script" path="res://scripts/components/characters/NavigationManager.cs" id="1_jq0cp"]
+
+[node name="NavigationManager" type="NavigationAgent3D" node_paths=PackedStringArray("_character")]
+path_desired_distance = 0.1
+target_desired_distance = 0.1
+avoidance_enabled = true
+debug_enabled = true
+script = ExtResource("1_jq0cp")
+_character = NodePath("")

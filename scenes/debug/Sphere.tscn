@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://tjarp3va530d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sje52"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_nl6ps"]
+material = SubResource("StandardMaterial3D_sje52")
+radius = 0.25
+height = 0.5
+
+[node name="Sphere" type="MeshInstance3D"]
+mesh = SubResource("SphereMesh_nl6ps")

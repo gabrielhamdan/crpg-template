@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://btbmqtdtaa7sd"]
+
+[ext_resource type="PackedScene" uid="uid://dpk8lc6ts3vpf" path="res://scenes/interaction/InteractionArea.tscn" id="1_8umgs"]
+[ext_resource type="Script" path="res://scripts/interaction/TestInteractableObject.cs" id="1_dem2t"]
+[ext_resource type="Texture2D" uid="uid://dm0uafk2w5f2x" path="res://assets/materials/kenney_prototype/texture_green.png" id="2_xqucg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d2514"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_og7bd"]
+albedo_texture = ExtResource("2_xqucg")
+uv1_scale = Vector3(2, 2, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_32wpy"]
+material = SubResource("StandardMaterial3D_og7bd")
+size = Vector3(2, 2, 2)
+
+[node name="InteractableObject" type="Node3D" node_paths=PackedStringArray("InteractionArea")]
+script = ExtResource("1_dem2t")
+InteractionArea = NodePath("InteractionArea")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_d2514")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_32wpy")
+
+[node name="InteractionArea" parent="." node_paths=PackedStringArray("InteractionNode") instance=ExtResource("1_8umgs")]
+InteractionNode = NodePath("..")

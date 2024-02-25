@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkd4os06mk3we"]
+
+[ext_resource type="Script" path="res://scripts/components/cameras/CameraTarget.cs" id="1_o4422"]
+
+[node name="CameraTarget" type="Node3D" node_paths=PackedStringArray("_target")]
+transform = Transform3D(-0.819152, -0.40558, 0.40558, 0, 0.707107, 0.707107, -0.573576, 0.579228, -0.579228, 8, 15, -11)
+script = ExtResource("1_o4422")
+_target = NodePath("")

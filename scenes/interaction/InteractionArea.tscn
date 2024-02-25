@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpk8lc6ts3vpf"]
+
+[ext_resource type="Script" path="res://scripts/interaction/InteractionArea.cs" id="1_bvbr0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dp1f6"]
+size = Vector3(5, 2, 5)
+
+[node name="InteractionArea" type="Area3D"]
+collision_priority = 0.0
+input_ray_pickable = false
+monitorable = false
+script = ExtResource("1_bvbr0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_dp1f6")
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]
+[connection signal="body_exited" from="." to="." method="OnBodyExited"]
